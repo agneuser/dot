@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+echo ".dotfiles/" >> .gitignore
+
+git clone --bare https://github.com/agneuser/dotfiles.git $HOME/.dotfiles
+
+alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+
+dot checkout -f
+dot config status.showUntrackedFiles no
